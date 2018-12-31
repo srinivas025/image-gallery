@@ -42,16 +42,14 @@ class ImageSlider extends Component {
     console.log('index is '+cat);
   	let currentIndex = this.state.currentIndex;
     let translateValue = this.state.translateValue;
-    // Exiting the method early if we are at the end of the images array.
-    // We also want to reset currentIndex and translateValue, so we return
-    // to the first image in the array.
+
     if(this.state.currentIndex[cat] === 0) {
     	return
     }
     
     currentIndex[cat] = currentIndex[cat]-1;
     translateValue[cat] = translateValue[cat] + (this.slideWidth()/5);
-    // This will not run if we met the if condition above
+
     this.setState(prevState => ({
       currentIndex: currentIndex,
         translateValue: translateValue,
@@ -65,9 +63,6 @@ class ImageSlider extends Component {
   	console.log('index is '+cat);
   	let currentIndex = this.state.currentIndex;
     let translateValue = this.state.translateValue;
-    // Exiting the method early if we are at the end of the images array.
-    // We also want to reset currentIndex and translateValue, so we return
-    // to the first image in the array.
     if(this.state.currentIndex[cat] === (this.props.categories.items[cat].models.length)/2) {
     	console.log("inside last");
     	currentIndex[cat] = 0;
@@ -81,7 +76,7 @@ class ImageSlider extends Component {
     
     currentIndex[cat] = currentIndex[cat]+1;
     translateValue[cat] = translateValue[cat] + -(this.slideWidth()/(this.props.categories.items[cat].models.length/2)+40);
-    // This will not run if we met the if condition above
+
     this.setState(prevState => ({
       currentIndex: currentIndex,
         translateValue: translateValue,
